@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Feed from './feed'
-import Favorites from './favorites';
-import MyNotes from './mynotes';
+import FeedScreen from './FeedScreen'
+import FavoritesScreen from './FavoritesScreen';
+import MyNotesScreen from './MynotesScreen';
 import StackScreen from './StackScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -17,7 +17,7 @@ const screenOptions = { headerShown: false, tabBarActiveTintColor: '#309975', ta
 const  FeedStack = () => {
   return (
     <Stack.Navigator >
-      <Stack.Screen name="Feed" component={Feed} />
+      <Stack.Screen name="Feeds" component={FeedScreen} />
       {/* show header to display a back button in-app */}
       <Stack.Screen options={{ headerShown: true, }} name="Stack" component={StackScreen} />
     </Stack.Navigator>
@@ -26,7 +26,7 @@ const  FeedStack = () => {
 const  FavoritesStack = () => {
   return (
     <Stack.Navigator >
-      <Stack.Screen name="Favorites" component={Favorites} />
+      <Stack.Screen name="Favorite" component={FavoritesScreen} />
       {/* show header to display a back button in-app */}
       <Stack.Screen options={{ headerShown: true, }} name="Stack" component={StackScreen} />
     </Stack.Navigator>
@@ -35,7 +35,7 @@ const  FavoritesStack = () => {
 const  MyNotesStack = () => {
   return (
     <Stack.Navigator >
-      <Stack.Screen name="MyNotes" component={MyNotes} />
+      <Stack.Screen name="MyNote" component={MyNotesScreen} />
       {/* show header to display a back button in-app */}
       <Stack.Screen options={{ headerShown: true, }} name="Stack" component={StackScreen} />
     </Stack.Navigator>
@@ -56,23 +56,23 @@ const  MyNotesStack = () => {
               }}  
               component={FeedStack}  />
           <Tab.Screen 
-            name="Favorites" 
+            name="My Notes" 
             options={{
             tabBarLabel: "My Notes",
             tabBarIcon: ({ tintColor }) => (
               <MaterialCommunityIcons name="notebook" size={24} color={tintColor} />
             ),
             }}  
-            component={FavoritesStack}  />
+            component={MyNotesStack}  />
           <Tab.Screen 
-            name="MyNotes"
+            name="Favorites"
             options={{
             tabBarLabel: "Favorites",
             tabBarIcon: ({ tintColor }) => (
               <MaterialCommunityIcons name="star" size={24} color={tintColor} />
             ),
             }}   
-            component={MyNotesStack}  />
+            component={FavoritesStack}  />
         </Tab.Navigator>
       </NavigationContainer>
     );

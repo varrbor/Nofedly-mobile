@@ -1,6 +1,6 @@
 import React from 'react';
   import { Text, View, Button } from 'react-native';
-  const Feed = ({ navigation }) => {
+  const FeedScreen = ({ navigation }) => {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Feed</Text>
@@ -10,4 +10,4 @@ import React from 'react';
         />
       </View> );
   };
-  export default Feed;
+  export default FeedScreen;
