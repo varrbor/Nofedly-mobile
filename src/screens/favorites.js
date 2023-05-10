@@ -1,9 +1,9 @@
 import React from 'react';
-  import { Text, View } from 'react-native';
-  const Favorites = () => {
+  import { Text, View, Button } from 'react-native';
+  const Favorites = ({ navigation }) => {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Favorites</Text>
-        </View> );
+      </View> );
   };
   export default Favorites;

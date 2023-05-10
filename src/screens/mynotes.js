@@ -1,9 +1,9 @@
 import React from 'react';
   import { Text, View } from 'react-native';
-  const MyNotes = () => {
+  const MyNotes = ({navigation}) => {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>My Notes</Text>
-</View> );
+      </View> );
 };
   export default MyNotes;
