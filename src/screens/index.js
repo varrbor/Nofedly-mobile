@@ -8,9 +8,11 @@ import Feed from './feed'
 import Favorites from './favorites';
 import MyNotes from './mynotes';
 import StackScreen from './StackScreen';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+const screenOptions = { headerShown: false, tabBarActiveTintColor: '#309975', tabBarInactiveTintColor: '#454d66', tabBarStyle: {}, }
 
 const  FeedStack = () => {
   return (
@@ -43,10 +45,34 @@ const  MyNotesStack = () => {
   export default function App() {
     return (
       <NavigationContainer>
-        <Tab.Navigator screenOptions={{headerShown: false}}>
-          <Tab.Screen name="Feed" component={FeedStack}  />
-          <Tab.Screen name="Favorites" component={FavoritesStack}  />
-          <Tab.Screen name="MyNotes" component={MyNotesStack}  />
+        <Tab.Navigator screenOptions={screenOptions}>
+          <Tab.Screen 
+            name="Feed"  
+            options={{
+              tabBarLabel: "Feed",
+              tabBarIcon: ({ tintColor }) => (
+                <MaterialCommunityIcons name="home" size={24} color={tintColor} />
+              ),
+              }}  
+              component={FeedStack}  />
+          <Tab.Screen 
+            name="Favorites" 
+            options={{
+            tabBarLabel: "My Notes",
+            tabBarIcon: ({ tintColor }) => (
+              <MaterialCommunityIcons name="notebook" size={24} color={tintColor} />
+            ),
+            }}  
+            component={FavoritesStack}  />
+          <Tab.Screen 
+            name="MyNotes"
+            options={{
+            tabBarLabel: "Favorites",
+            tabBarIcon: ({ tintColor }) => (
+              <MaterialCommunityIcons name="star" size={24} color={tintColor} />
+            ),
+            }}   
+            component={MyNotesStack}  />
         </Tab.Navigator>
       </NavigationContainer>
     );
