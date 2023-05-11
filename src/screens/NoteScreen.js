@@ -1,6 +1,6 @@
 import React from 'react';
   import { Text, View } from 'react-native';
-  const StackScreen = ({ route }) => {
+  const NoteScreen = ({ route }) => {
     const { id } = route.params;
 
     return (
@@ -8,4 +8,4 @@ import React from 'react';
         <Text>This is note {id}</Text>
       </View> );
   };
-  export default StackScreen;
+  export default NoteScreen;

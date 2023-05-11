@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FeedScreen from './FeedScreen'
 import FavoritesScreen from './FavoritesScreen';
 import MyNotesScreen from './MynotesScreen';
-import StackScreen from './StackScreen';
+import NoteScreen from './NoteScreen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -19,7 +19,7 @@ const  FeedStack = () => {
     <Stack.Navigator >
       <Stack.Screen name="Feeds" component={FeedScreen} />
       {/* show header to display a back button in-app */}
-      <Stack.Screen options={{ headerShown: true, }} name="Stack" component={StackScreen} />
+      <Stack.Screen options={{ headerShown: true, }} name="Stack" component={NoteScreen} />
     </Stack.Navigator>
   );
 }
@@ -28,7 +28,7 @@ const  FavoritesStack = () => {
     <Stack.Navigator >
       <Stack.Screen name="Favorite" component={FavoritesScreen} />
       {/* show header to display a back button in-app */}
-      <Stack.Screen options={{ headerShown: true, }} name="Stack" component={StackScreen} />
+      <Stack.Screen options={{ headerShown: true, }} name="Stack" component={NoteScreen} />
     </Stack.Navigator>
   );
 }
@@ -37,7 +37,7 @@ const  MyNotesStack = () => {
     <Stack.Navigator >
       <Stack.Screen name="MyNotes" component={MyNotesScreen} />
       {/* show header to display a back button in-app */}
-      <Stack.Screen options={{ headerShown: true, }} name="Stack" component={StackScreen} />
+      <Stack.Screen options={{ headerShown: true, }} name="Stack" component={NoteScreen} />
     </Stack.Navigator>
   );
 }
