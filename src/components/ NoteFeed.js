@@ -28,16 +28,17 @@ background-color: #ced0ce;
  `;
 
  const NoteFeed = props => {
+  console.log(props.notes[0].id)
   return (
     <View>
       <FlatList
-        data={notes}
+        data={props.notes}
         keyExtractor={({ id }) => id.toString()}
         ItemSeparatorComponent={() => <Separator />}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() =>
-              props.navigation.navigate('Stack', {
+              props.navigation.navigate('Note', {
                 id: item.id
               })
 } >
@@ -46,7 +47,7 @@ background-color: #ced0ce;
             </FeedView>
           </TouchableOpacity>
 )} />
-</View> );
-};
+</View>
+); };
 
 export default NoteFeed;

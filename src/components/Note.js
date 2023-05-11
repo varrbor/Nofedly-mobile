@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery, gql } from '@apollo/client';
 import { Text, ScrollView } from "react-native";
 import styled from "styled-components/native";
 const NoteView = styled.ScrollView`
