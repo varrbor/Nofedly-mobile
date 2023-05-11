@@ -35,7 +35,7 @@ const  FavoritesStack = () => {
 const  MyNotesStack = () => {
   return (
     <Stack.Navigator >
-      <Stack.Screen name="MyNote" component={MyNotesScreen} />
+      <Stack.Screen name="MyNotes" component={MyNotesScreen} />
       {/* show header to display a back button in-app */}
       <Stack.Screen options={{ headerShown: true, }} name="Stack" component={StackScreen} />
     </Stack.Navigator>

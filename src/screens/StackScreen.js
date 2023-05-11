@@ -1,15 +1,11 @@
-import { Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+  import { Text, View } from 'react-native';
+  const StackScreen = ({ route }) => {
+    const { id } = route.params;
 
-import { Button } from 'react-native';
-
-export default function StackScreen({ navigation }) {
-  return (
-    <View>
-      <Text>Welcome!</Text>
-      <Text>This is another screen, inside the home stack</Text>
-      <StatusBar style="auto" />
-      <Button title="Go Back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
+    return (
+      <View style={{ padding: 10 }}>
+        <Text>This is note {id}</Text>
+      </View> );
+  };
+  export default StackScreen;
