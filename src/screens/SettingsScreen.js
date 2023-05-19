@@ -1,16 +1,18 @@
 import React from 'react';
 import { View, Button } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
-const SettingsScreen = ({ navigation })  => {
+
+function SettingsScreen({ navigation }) {
   const signOut = (props) => {
     SecureStore.deleteItemAsync('token').then(
-      navigation.navigate('AuthLoadingStack')
+      navigation.navigate('AuthLoadingStack'),
     );
-};
-return (
+  };
+  return (
     <View>
       <Button title="Sign Out" onPress={signOut} />
     </View>
-); };
+  );
+}
 
 export default SettingsScreen;
