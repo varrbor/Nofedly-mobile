@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 
 const LoadingWrap = styled.View`
@@ -9,7 +9,7 @@ const LoadingWrap = styled.View`
 `;
 function Loading() {
   return (
-       <LoadingWrap>
+    <LoadingWrap>
       <ActivityIndicator size="large" />
     </LoadingWrap>
   );

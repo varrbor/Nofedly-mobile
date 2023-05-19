@@ -23,9 +23,9 @@ function NoteScreen({ route }) {
 
   const { loading, error, data } = useQuery(GET_NOTE, { variables: { id } });
   if (loading) return <Loading />;
-  // В случае сбоя выдаем пользователю сообщение об ошибке
+
   if (error) return <Text>Error! Note not found</Text>;
-  // В случае успеха передаем данные в компонент note
+
   return <Note note={data.note} />;
 }
 export default NoteScreen;
