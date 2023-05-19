@@ -2,6 +2,8 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
   import { Text, View } from 'react-native';
   import Note from '../components/Note';
+  import Loading from '../components/Loading';
+
 
   const GET_NOTE = gql`
   query note($id: ID!) {
@@ -21,7 +23,7 @@ import { useQuery, gql } from '@apollo/client';
     const { id } = route.params;
 
    const { loading, error, data } = useQuery(GET_NOTE, { variables: { id } });
-    if (loading) return <Text>Loading</Text>;
+   if (loading) return <Loading />;
     // В случае сбоя выдаем пользователю сообщение об ошибке
     if (error) return <Text>Error! Note not found</Text>;
     // В случае успеха передаем данные в компонент note
