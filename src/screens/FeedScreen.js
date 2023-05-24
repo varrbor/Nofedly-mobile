@@ -16,10 +16,11 @@ const GET_NOTES = gql`
   } }
 } `;
 function FeedScreen(props) {
-  const { loading, error, data } = useQuery(GET_NOTES);
+  const { navigation } = props;
+  const { loading, data } = useQuery(GET_NOTES);
 
   if (loading) return <Loading />;
 
-  return <NoteFeed notes={data.notes} navigation={props.navigation} />;
+  return <NoteFeed notes={data.notes} navigation={navigation} />;
 }
 export default FeedScreen;

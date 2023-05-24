@@ -21,5 +21,6 @@ module.exports = {
     'import/extensions': 'off',
     'react/no-unstable-nested-components': 'off',
     'no-use-before-define': 'off',
+    'react/prop-types': 0,
   },
 };

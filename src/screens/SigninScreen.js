@@ -1,17 +1,40 @@
 import React from 'react';
-import { View, Button, Text } from 'react-native';
+import {
+  Text,
+} from 'react-native';
+import { useMutation, gql } from '@apollo/client';
 import * as SecureStore from 'expo-secure-store';
+import UserForm from '../components/UserForm';
+import Loading from '../components/Loading';
 
-function SignIn(props) {
-  const storeToken = () => {
-    SecureStore.setItemAsync('token', 'abc').then(
-      props.navigation.navigate('TabNavigator'),
+const SIGNIN_USER = gql`
+mutation signIn($email: String, $password: String!) {
+  signIn(email: $email, password: $password)
+}
+`;
+
+function SignIn({ navigation }) {
+  const storeToken = (token) => {
+    SecureStore.setItemAsync('token', token).then(
+      navigation.navigate('TabNavigator'),
     );
   };
+
+  const [signIn, { loading, error }] = useMutation(SIGNIN_USER, {
+    onCompleted: (data) => {
+      storeToken(data.signIn);
+    },
+  });
+  if (loading) return <Loading />;
   return (
-    <View>
-      <Button title="Sign in!" onPress={storeToken} />
-    </View>
+    <>
+      {error && <Text>Error signing in!</Text>}
+      <UserForm
+        action={signIn}
+        formType="signIn"
+        navigation={navigation}
+      />
+    </>
   );
 }
 SignIn.navigationOptions = {
