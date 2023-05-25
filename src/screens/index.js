@@ -9,6 +9,8 @@ import MyNotesScreen from './MynotesScreen';
 import NoteScreen from './NoteScreen';
 import AuthLoadingScreen from './AuthloadingScreen';
 import SignInScreen from './SigninScreen';
+import SignUpScreen from './SignupScreen';
+
 import SettingsScreen from './SettingsScreen';
 
 const Tab = createBottomTabNavigator();
@@ -94,7 +96,8 @@ function AuthStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen options={{ headerBackVisible: true }} name="SignIn" component={SignInScreen} />
-      <Stack.Screen options={{ headerShown: false, title: 'My profile', headerBackTitleVisible: false }} name="TabNavigator" component={TabNavigator} />
+      <Stack.Screen options={{ headerShown: true, title: 'Sign Up', headerBackTitleVisible: false }} name="SignUp" component={SignUpScreen} />
+      <Stack.Screen options={{ headerShown: false, title: 'My profile'}} name="TabNavigator" component={TabNavigator} />
     </Stack.Navigator>
   );
 }
