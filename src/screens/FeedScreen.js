@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
-import NoteFeed from '../components/ NoteFeed';
+import NoteFeed from '../components/NoteFeed';
 import Loading from '../components/Loading';
 
 const GET_NOTES = gql`
